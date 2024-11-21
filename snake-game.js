@@ -78,6 +78,7 @@ function update() {
     ctx.clearRect(0, 0, canvasSize, canvasSize);
     drawSnake();
     drawFood();
+    displayScore();
 }
 
 function changeDirection(event) {
@@ -92,6 +93,12 @@ function changeDirection(event) {
     } else if (key === 'ArrowRight' && direction !== 'left') {
         direction = 'right';
     }
+}
+
+function displayScore() {
+    ctx.fillStyle = 'black';
+    ctx.font = '20px Arial';
+    ctx.fillText(`Score: ${score}`, 10, 20);
 }
 
 document.addEventListener('keydown', changeDirection);
